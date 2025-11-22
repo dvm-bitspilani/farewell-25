@@ -1,0 +1,181 @@
+.centerDiv {
+  position: absolute;
+  top: 0;
+  left: 23.5vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // justify-content: space-around;
+  min-height: 100vh;
+
+  .timer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    margin: 1.4vw 0 0 0;
+
+    .timerUpper {
+      font-size: 1.1vw;
+      color: #e6c3bc;
+      font-family: supercell;
+      text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black,
+        2px 2px 0 black;
+    }
+
+    .timerLower {
+      font-size: 1.7vw;
+      color: #ffffff;
+      font-family: supercell;
+      text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black,
+        2px 2px 0 black;
+    }
+  }
+
+  .carouselBox {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to top, #6b6662 0%, #5a5552 100%);
+    // height: 35.2vw;
+    width: 54.7vw;
+    border: 1.8px solid black;
+    border-radius: 1vw;
+    margin: 1vw 0;
+    padding: 0.8vw 0.5vw 0.6vw 0.5vw;
+
+    .carouselHeader {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5vw;
+
+      .backButton {
+        width: 6vw;
+        cursor: pointer;
+      }
+
+      .carouselTitle {
+        font-family: supercell;
+        font-size: 1.4vw;
+        color: #ffffff;
+      }
+    }
+
+    .cardBox {
+      display: flex;
+      flex-direction: column;
+      gap: 1.45vw;
+      background-color: #e6e7d7;
+      border-radius: 0.6vw;
+      padding: 1.4vw 0 1.56vw 0;
+
+      .card {
+        display: flex;
+        padding-left: 2vw;
+        gap: 4vw;
+
+        .cardImage {
+          width: 22.8vw;
+        }
+
+        .cardDetails {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          gap: 1.5vw;
+
+          .subDetailsBox {
+            display: grid;
+            grid-template-columns: 10vw 12vw;
+            justify-content: center;
+
+            .field {
+              font-family: supercell;
+              font-size: 1.3vw;
+              color: #2a548e;
+            }
+
+            .value {
+              font-family: supercell;
+              font-size: 1.3vw;
+              color: #000;
+            }
+          }
+          .divider {
+            width: 100%;
+            height: 2px;
+            background-color: #858676;
+          }
+        }
+      }
+
+      .message {
+        font-family: supercell;
+        font-size: 1.2vw;
+        color: #2a548e;
+        text-align: center;
+        padding: 0 4vw;
+      }
+    }
+  }
+  .verticalBox {
+    display: flex;
+    gap: 1.6vw;
+    border: 3.8px solid black;
+    border-radius: 1.5vw;
+    padding: 0.7vw;
+    background-color: hsla(0, 0%, 0%, 0.4);
+
+    .verticalItem {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5vw;
+      background-color: #5378a1e5;
+      border-radius: 1vw;
+      border: 2.2px solid black;
+      width: 7vw;
+
+      p {
+        border-top-left-radius: 0.7vw;
+        border-top-right-radius: 0.7vw;
+        font-family: supercell;
+        font-size: 1.2vw;
+        color: #fff;
+        text-shadow: -1.3px -1.3px 0 black, 1.3px -1.3px 0 black,
+          -1.3px 1.3px 0 black, 1.3px 1.3px 0 black;
+        background-color: #4e88ce;
+        width: 100%;
+        text-align: center;
+        padding: 0.3vw 0;
+        box-sizing: border-box;
+      }
+
+      img {
+        margin: 0.8vw auto 1.6vw auto;
+        height: 3.75vw;
+      }
+    }
+    .inactive {
+      background: linear-gradient(to bottom, #201d17, #45413a);
+
+      p {
+        color: #757a77;
+        text-shadow: -1.3px -1.3px 0 black, 1.3px -1.3px 0 black,
+          -1.3px 1.3px 0 black, 1.3px 1.3px 0 black;
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+video{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 10;
+  display: none;
+}

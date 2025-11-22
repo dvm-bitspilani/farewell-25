@@ -3,8 +3,10 @@
   src: url("/font/Supercell-Magic\ Regular.ttf");
 }
 
-body {
+* {
   margin: 0;
   padding: 0;
 }
-
+body {
+  overflow: hidden;
+}

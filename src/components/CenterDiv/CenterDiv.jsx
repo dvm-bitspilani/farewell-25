@@ -1,0 +1,201 @@
+import styles from "./CenterDiv.module.scss";
+
+import { useState, useEffect, useRef } from "react";
+
+import backButton from "/svgs/back-button.svg";
+import forwardButton from "/svgs/forward-button.svg";
+import backColor from "/svgs/back-color.svg";
+import appBW from "/svgs/app-bw.svg";
+import designBW from "/svgs/design-bw.svg";
+import frontBW from "/svgs/front-bw.svg";
+import threeDBW from "/svgs/3d-bw.svg";
+import twoDBW from "/svgs/2d-bw.svg";
+import cardImage from "/imgs/dummy.png";
+import transition from "/video/transition.mp4";
+
+import seniors from "./seniors";
+
+function CenterDiv() {
+  let targetDate = new Date("Nov 28, 2025 00:00:00").getTime();
+  const [timeLeft, setTimeLeft] = useState({
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const videoRef = useRef(null);
+
+  function handleNext() {
+    if (isAnimating) return;
+    setIsAnimating(true);
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === seniors.length - 1 ? 0 : prevIndex + 1
+      );
+      setIsAnimating(false);
+    }, 2000);
+  }
+
+  function handleBack() {
+    if (isAnimating) return;
+    setIsAnimating(true);
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === 0 ? seniors.length - 1 : prevIndex - 1
+      );
+      setIsAnimating(false);
+    }, 2000);
+  }
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance <= 0) {
+        clearInterval(intervalId);
+        setTimeLeft({ hours: 0, minutes: 0, seconds: 0 });
+        return;
+      }
+
+      setTimeLeft({
+        hours: Math.floor(distance / (1000 * 60 * 60)),
+        minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+        seconds: Math.floor((distance % (1000 * 60)) / 1000),
+      });
+    }, 1000);
+
+    return () => clearInterval(intervalId);
+  }, [targetDate]);
+
+  useEffect(() => {
+    if (isAnimating && videoRef.current) {
+      videoRef.current.currentTime = 0;
+      videoRef.current.play();
+      videoRef.current.style.display = "block";
+    } else if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.style.display = "none";
+    }
+  }, [isAnimating]);
+
+  return (
+    <>
+      <video src={transition} ref={videoRef}></video>
+      <div className={styles.centerDiv}>
+        <div className={styles.timer}>
+          <p className={styles.timerUpper}>Farewell ‘25 starts in:</p>
+          <p className={styles.timerLower}>
+            {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s
+          </p>
+        </div>
+        <div className={styles.carouselBox}>
+          <div className={styles.carouselHeader}>
+            <img
+              src={backButton}
+              alt="back button"
+              className={styles.backButton}
+              onClick={handleBack}
+            />
+            <p className={styles.carouselTitle}>{seniors[currentIndex].name}</p>
+            <img
+              src={forwardButton}
+              alt="forward button"
+              className={styles.backButton}
+              onClick={handleNext}
+            />
+          </div>
+          <div className={styles.cardBox}>
+            <div className={styles.card}>
+              <img
+                src={cardImage}
+                alt="card image"
+                className={styles.cardImage}
+              />
+              <div className={styles.cardDetails}>
+                <div className={styles.subDetailsBox}>
+                  <p className={styles.field}>Vertical</p>
+                  <p className={styles.value}>
+                    : {seniors[currentIndex].vertical}
+                  </p>
+                </div>
+                <span className={styles.divider}></span>
+                <div className={styles.subDetailsBox}>
+                  <p className={styles.field}>Batch of</p>
+                  <p className={styles.value}>
+                    : {seniors[currentIndex].batch}
+                  </p>
+                </div>
+                <span className={styles.divider}></span>
+                <div className={styles.subDetailsBox}>
+                  <p className={styles.field}>Party</p>
+                  <p className={styles.value}>: 28-11-25</p>
+                </div>
+                <span className={styles.divider}></span>
+              </div>
+            </div>
+            <p className={styles.message}>
+              You made our time here special! This journey had tons of
+              learning,fun and memories along the way. <br /> Here’s to a bright
+              future!
+            </p>
+          </div>
+        </div>
+        <div className={styles.verticalBox}>
+          <div
+            className={`${styles.verticalItem} ${
+              seniors[currentIndex].code === "back" ? "" : styles.inactive
+            }`}
+          >
+            <p>x5</p>
+            <img src={backColor} alt="back" />
+          </div>
+          <div
+            className={`${styles.verticalItem} ${
+              seniors[currentIndex].code === "app" ? "" : styles.inactive
+            }`}
+          >
+            <p>x4</p>
+            <img src={appBW} alt="app" />
+          </div>
+          <div
+            className={`${styles.verticalItem} ${
+              seniors[currentIndex].code === "design" ? "" : styles.inactive
+            }`}
+          >
+            <p>x4</p>
+            <img src={designBW} alt="design" />
+          </div>
+          <div
+            className={`${styles.verticalItem} ${
+              seniors[currentIndex].code === "3d" ? "" : styles.inactive
+            }`}
+          >
+            <p>x4</p>
+            <img src={threeDBW} alt="3d" />
+          </div>
+          <div
+            className={`${styles.verticalItem} ${
+              seniors[currentIndex].code === "front" ? "" : styles.inactive
+            }`}
+          >
+            <p>x4</p>
+            <img src={frontBW} alt="front" />
+          </div>
+          <div
+            className={`${styles.verticalItem} ${
+              seniors[currentIndex].code === "2d" ? "" : styles.inactive
+            }`}
+          >
+            <p>x4</p>
+            <img src={twoDBW} alt="2d" />
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+export default CenterDiv;

@@ -1,5 +1,6 @@
 .page {
   background: center / cover no-repeat url("/svgs/bg.svg");
-  min-height: 100vh;
-  min-width: 100vw;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
 }
