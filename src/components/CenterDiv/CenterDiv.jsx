@@ -139,7 +139,7 @@ function CenterDiv({ className }) {
             </div>
             <p className={styles.message}>
               You made our time here special! This journey had tons of
-              learning,fun and memories along the way. <br /> Here’s to a bright
+              learning, fun and memories along the way. <br /> Here’s to a bright
               future!
             </p>
           </div>
@@ -194,8 +194,8 @@ function CenterDiv({ className }) {
             <img src={adobeAELogo} alt="2d" />
           </div>
         </div>
+        <BottomDiv />
       </div>
-      <BottomDiv />
     </div>
   );
 }

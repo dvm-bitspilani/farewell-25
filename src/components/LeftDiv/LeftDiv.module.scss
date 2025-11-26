@@ -15,8 +15,22 @@
   .topLeft {
     width: 23vw;
   }
-  .topLeftSub {
-    width: 16vw;
+  .trophyCountWrapper {
+    position: relative;
+    .topLeftSub {
+      width: 16vw;
+    }
+    .trophyCount {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      top: 48%;
+      left: 54%;
+      font-size: clamp(0.6rem, 1.1vw, 1.5rem);
+      color: #ffffff;
+      font-family: supercell;
+      text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black,
+        2px 2px 0 black;
+    }
   }
   .middleLeft {
     width: 5.2vw;
@@ -33,6 +47,6 @@
 
     .middleLeft, .bottomLeft {display: none;}
     .topLeft {width: 42vw;}
-    .topLeftSub {width: 30vw;}
+    .trophyCountWrapper .topLeftSub {width: 30vw;}
   }
 }

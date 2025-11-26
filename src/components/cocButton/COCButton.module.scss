@@ -1,7 +1,37 @@
+@use "sass:color";
+
 .cocButton {
-    background-size: cover;
-    aspect-ratio: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: auto;
+    width: auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 13px;
+    border: 2px solid color-mix(in srgb, var(--color) 50%, white);
+    box-shadow: 0 1px 2px 1px #000;
+
+    .cocButtonUnderlay {
+        position: absolute;
+        background-color: var(--color);
+        opacity: 0.8;
+        height: 100%;
+        width: 100%;
+        top: 0%;
+        left: 0%;
+        z-index: 0;
+    }
+
+    .cocButtonMidLayer {
+        position: absolute;
+        width: calc(100% - 5px);
+        top: 3px;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 54%;
+        filter: saturate(1.8);
+        opacity: 0.8;
+        background: linear-gradient(to bottom, color-mix(in srgb, var(--color), white 45%), color-mix(in srgb, var(--color), #fff4 55%));
+        border-radius: 9px;
+    }
+
+    * {z-index: 1;}
 }

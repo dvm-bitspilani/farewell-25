@@ -1,0 +1,196 @@
+@use "../../App.module.scss" as *;
+
+.chatWrapper {
+    position: fixed;
+    height: 100vh;
+    top: 0%;
+    left: 0%;
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+
+    .clanChat {
+        width: 42vw;
+        min-width: 25rem;
+        height: 100vh;
+        border-right: 5px solid #53514b;
+        background-color: #403b37;
+        z-index: 1000;
+        position: relative;
+        overflow: hidden;
+
+        &::after {
+            content: '';
+            width: 100%;
+            position: absolute;
+            top: 0%;
+            box-shadow: 0 0 2rem 3rem #403b37;
+        }
+
+        &::before {
+            content: '';
+            width: 100%;
+            position: absolute;
+            bottom: 0%;
+            box-shadow: 0 0 2rem 3rem #403b37;
+            transform: rotateZ(180deg);
+        }
+
+        .chatArea {
+            padding: 4rem 1rem 4rem 3rem;
+            overflow-y: scroll;
+            height: calc(100vh - 8rem);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+    }
+
+    .closeChatButtonWrapper {
+        background-color: #464443;
+        border: 2px solid black;
+        border-left: 0px;
+        border-radius: 0 15px 15px 0;
+        box-shadow: 0 0 3px black;
+        padding: 3px;
+        padding-left: 5px;
+        transform: translateX(-3px);
+
+        .closeChatButton {
+            aspect-ratio: 0.6;
+            background-size: 100% 100%;
+            filter: saturate(1.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+
+            .closeChatIcon {
+                color: #fff;
+                font-size: clamp(2rem, 3.6vw, 5rem);
+                filter: drop-shadow(0 4px 0 black)
+            }
+        }
+    }
+}
+
+.chatWrapperOpen {
+    @extend .chatWrapper;
+    transform: translateX(0%);
+}
+
+.clanBanner {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(75% - 2rem);
+    margin-top: 0.3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.3rem 1rem;
+    z-index: 100;
+
+    .clanLogoWrapper {
+        display: flex;
+        align-items: center;
+
+        .clanLogo {
+            width: 3rem;
+        }
+    }
+
+    .clanTitle {
+        font-family: supercell;
+        color: #fff;
+        stroke: #000;
+        stroke-width: 2px;
+        -webkit-text-stroke: #000;
+        -webkit-text-stroke-width: 0.5px;
+        filter: drop-shadow(0 3px 0 #000);
+        font-size: clamp(0.6rem, 2vw, 1rem);
+    }
+
+    .onlineStat {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        div {
+            color: #a5e25b;
+            font-family: supercell;
+            font-size: clamp(0.36rem, 1.2vw, 0.75rem);
+            stroke: #000;
+            stroke-width: 1px;
+            -webkit-text-stroke: #000;
+            -webkit-text-stroke-width: 0.5px;
+            filter: drop-shadow(0 3px 0 #000);
+        }
+    }
+}
+
+.clanMessage {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    max-width: 80%;
+
+    .messageHead {
+        display: flex;
+        gap: 0.6rem;
+        align-items: center;
+
+        .senderLeague {
+            width: 1.8rem;
+        }
+
+        .senderName {
+            font-family: supercell;
+            font-size: 0.9rem;
+            color: #bdae88d0;
+        }
+    }
+
+    .messageBody {
+        background-color: #34302d;
+        width: fit-content;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        min-width: 15rem;
+
+        .message {
+            font-family: supercell;
+            font-size: 0.8rem;
+            color: #dddddd;
+        }
+
+        .messageTime, .senderRole {
+            font-size: 0.6rem;
+            font-family: supercell;
+            color: #beb597a9;
+            text-align: right;
+        }
+    }
+}
+
+.selfMessage {
+    @extend .clanMessage;
+    width: fit-content;
+    margin-left: auto;
+    align-items: flex-end;
+
+    .messageHead {
+        align-self: flex-start;
+
+        .senderName {
+            color: #a5e25b;
+        }
+    }
+
+}
