@@ -4,6 +4,8 @@ import styles from "./ClanChat.module.scss";
 import COCButton from "../cocButton/COCButton";
 import ClanMessage from "./ClanMessage";
 import { randInt } from "../../utils";
+import { BiSolidSend } from "react-icons/bi";
+import reqIcon from "/imgs/req-icon.png"
 
 export default function ClanChat({ chatOpened, onClose }) {
     return (
@@ -14,9 +16,16 @@ export default function ClanChat({ chatOpened, onClose }) {
                     {Array(10).fill(null).map(() => <ClanMessage sender={{ name: "Mai-san", role: "front-end" }} self={randInt(2)} />)}
                 </div>
                 <div className={styles.chatBottom}>
-                    <div className={styles.chatInput}></div>
-                    <div className={styles.challengeButton}></div>
-                    <div className={styles.donationReqButton}></div>
+                    <div className={styles.chatInputWrapper}>
+                        <div className={styles.chatInput}>
+                            <input type="text" placeholder="Clan Message..." />
+                            <BiSolidSend className={styles.sendIcon} />
+                        </div>
+                    </div>
+                    <COCButton className={styles.challengeButton} color="#8bce44"><span>Challenge</span></COCButton>
+                    <COCButton className={styles.donationReqButton} color="#8bce44">
+                        <img src={reqIcon} />
+                    </COCButton>
                 </div>
             </div>
             <div className={styles.closeChatButtonWrapper}>
