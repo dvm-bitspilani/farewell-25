@@ -15,7 +15,53 @@
     }
 
     .attackButton {
-        width: 3.69rem;
+        width: 3.6rem;
+        aspect-ratio: 1;
+        margin-top: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-width: 2px;
+        filter: saturate(1.1);
+
+        .starsContainer {
+            display: flex;
+            width: 81%;
+            gap: 0.1rem;
+            justify-content: space-around;
+
+            .star {
+                color: #a56f2c;
+                font-size: 1rem;
+                height: 1rem;
+                animation: starAnim 3s alternate-reverse infinite;
+
+                @for $i from 1 through 5 {
+                    &:nth-of-type(#{$i}) {
+                        animation-delay: calc($i*0.6s);
+                    }
+                }
+            }
+
+            @keyframes starAnim {
+                from {
+                    filter: drop-shadow(0 0 6px #ffffd5);
+                    stroke: #fbf6c4;
+                    color: #f3eed6ba;
+                }
+
+                to {
+                    filter: none;
+                    stroke: #f4973e;
+                    color: #a56f2c;
+                }
+            }
+        }
+
+        .mapImg {
+            flex: 1;
+            max-height: 60%;
+        }
     }
 
     .festContainer {
@@ -23,8 +69,8 @@
         gap: 0.6rem;
 
         .festLogoWrapper {
-            width: 3.2rem;
-            height: 3.2rem;
+            width: 3.6rem;
+            height: 3.6rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -36,8 +82,8 @@
     }
 
     .soundButton {
-        width: 3.2rem;
-        height: 3.2rem;
+        width: 3.6rem;
+        height: 3.6rem;
         aspect-ratio: 1;
         border-width: 2px;
         display: flex;

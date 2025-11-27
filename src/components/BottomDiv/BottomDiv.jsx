@@ -7,6 +7,8 @@ import bosmLogo from "/imgs/bosm-logo.png";
 import COCButton from '../cocButton/COCButton';
 import { useState } from 'react';
 import { IoVolumeHigh, IoVolumeMute } from 'react-icons/io5';
+import { FaStar } from 'react-icons/fa';
+import mapIcon from "/imgs/coc-map-icon.png";
 
 export default function BottomDiv() {
 
@@ -14,7 +16,14 @@ export default function BottomDiv() {
 
     return (
         <div className={styles.bottomDiv}>
-            <img src={attackImage} className={styles.attackButton} />
+            {/* <COCButton className={styles.attackButton} color="#C46A15">
+                <div className={styles.starsContainer}>
+                    {
+                        Array(5).fill(null).map((_, i) => <FaStar className={styles.star} stroke="#f4973e" strokeWidth={36} />)
+                    }
+                </div>
+                <img className={styles.mapImg} src={mapIcon} />
+            </COCButton> */}
             <div className={styles.festContainer}>
                 <COCButton className={styles.festLogoWrapper} color="#C46A15">
                     <img

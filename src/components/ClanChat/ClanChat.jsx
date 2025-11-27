@@ -1,4 +1,4 @@
-import { RiArrowLeftWideFill, RiArrowLeftWideLine } from "react-icons/ri";
+import { RiArrowLeftWideLine } from "react-icons/ri";
 import ClanBanner from "./ClanBanner";
 import styles from "./ClanChat.module.scss";
 import COCButton from "../cocButton/COCButton";

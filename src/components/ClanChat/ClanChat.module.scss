@@ -11,6 +11,14 @@
     align-items: center;
     z-index: 1000;
 
+    // @media (max-width: $mobileBreakpoint) {
+    //     height: 60dvh;
+
+    //     .clanChat {
+    //         height: 60dvh;
+    //     }
+    // }
+
     .clanChat {
         width: 42vw;
         min-width: 25rem;

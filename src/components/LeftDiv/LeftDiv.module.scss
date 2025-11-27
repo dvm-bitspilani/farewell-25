@@ -60,22 +60,79 @@
     }
   }
 
-  .bottomLeft {
-    width: 10vw;
+  .attackButton {
+    width: 8.1vw;
+    aspect-ratio: 1;
     margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+    border-width: 4px;
+    filter: saturate(1.1);
+
+    .starsContainer {
+      display: flex;
+      width: 81%;
+      gap: 0.1rem;
+      justify-content: space-around;
+      
+      .star {
+        color: #a56f2c;
+        font-size: 1rem;
+        height: 1rem;
+        animation: starAnim 3s alternate-reverse infinite;
+
+        @for $i from 1 through 5 {
+          &:nth-of-type(#{$i}) {animation-delay: calc($i*0.6s);}
+        }
+      }
+
+      @keyframes starAnim {
+        from {
+          filter: drop-shadow(0 0 6px #ffffd5);
+          stroke: #fbf6c4;
+          color: #f3eed6ba;
+        }
+        to {
+          filter: none;
+          stroke: #f4973e;
+          color: #a56f2c;
+        }
+      }
+    }
+
+    .mapImg {
+      flex: 1;
+      max-height: 60%;
+    }
+
+    .attackLabel {
+      font-family: supercell;
+      color: #fff;
+      stroke: #000;
+      stroke-width: 2px;
+      -webkit-text-stroke: #000;
+      -webkit-text-stroke-width: 0.5px;
+      filter: drop-shadow(0 3px 0 #000);
+      font-size: clamp(0.4rem, 1.2vw, 1rem);
+    }
   }
 
   @media (max-width: $mobileBreakpoint) {
     min-height: 0;
     height: fit-content;
 
-    .middleLeft,
-    .bottomLeft {
+    .attackButton,
+    .bottomLeft,
+    .chatButtonWrapper {
       display: none;
     }
 
     .topLeft {
-      width: 42vw;
+      width: 81vw;
+      padding: 0.6rem 0;
     }
 
     .trophyCountWrapper .topLeftSub {
