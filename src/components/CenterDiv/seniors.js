@@ -1,11 +1,5 @@
 const seniors = [
   {
-    name: "John Doe",
-    vertical: "Front-End",
-    batch: "2024",
-    code: "front",
-  },
-  {
     name: "Jane Smith",
     vertical: "Back-End",
     batch: "2025",
@@ -22,7 +16,7 @@ const seniors = [
     name: "Bob Brown",
     vertical: "Video 3d",
     batch: "2024",
-    code: "3d",
+    code: "video",
   },
   {
     name: "Charlie Davis",
@@ -34,7 +28,13 @@ const seniors = [
     name: "Eve Wilson",
     vertical: "Video 2d",
     batch: "2023",
-    code: "2d",
+    code: "video",
+  },
+  {
+    name: "Eve Johnson",
+    vertical: "Video 2d",
+    batch: "2023",
+    code: "video",
   },
 ];
 export default seniors;

@@ -17,7 +17,7 @@ import seniors from "./seniors";
 import BottomDiv from "../BottomDiv/BottomDiv";
 
 function CenterDiv({ className }) {
-  let targetDate = new Date("Nov 28, 2025 00:00:00").getTime();
+  let targetDate = new Date("Nov 29, 2025 00:00:00").getTime();
   const [timeLeft, setTimeLeft] = useState({
     hours: 0,
     minutes: 0,
@@ -28,24 +28,11 @@ function CenterDiv({ className }) {
 
   const videoRef = useRef(null);
 
-  function handleNext() {
+  function handleTransition(indexChange) {
     if (isAnimating) return;
     setIsAnimating(true);
     setTimeout(() => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex === seniors.length - 1 ? 0 : prevIndex + 1
-      );
-      setIsAnimating(false);
-    }, 2000);
-  }
-
-  function handleBack() {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    setTimeout(() => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex === 0 ? seniors.length - 1 : prevIndex - 1
-      );
+      indexChange();
       setIsAnimating(false);
     }, 2000);
   }
@@ -98,14 +85,26 @@ function CenterDiv({ className }) {
               src={backButton}
               alt="back button"
               className={styles.backButton}
-              onClick={handleBack}
+              onClick={() => {
+                handleTransition(() => {
+                  setCurrentIndex((prevIndex) =>
+                    prevIndex === 0 ? seniors.length - 1 : prevIndex - 1
+                  );
+                });
+              }}
             />
             <p className={styles.carouselTitle}>{seniors[currentIndex].name}</p>
             <img
               src={forwardButton}
               alt="forward button"
               className={styles.backButton}
-              onClick={handleNext}
+              onClick={() => {
+                handleTransition(() => {
+                  setCurrentIndex((prevIndex) =>
+                    prevIndex === seniors.length - 1 ? 0 : prevIndex + 1
+                  );
+                });
+              }}
             />
           </div>
           <div className={styles.cardBox}>
@@ -138,9 +137,8 @@ function CenterDiv({ className }) {
               </div>
             </div>
             <p className={styles.message}>
-              You made our time here special! This journey had tons of
-              learning, fun and memories along the way. <br /> Here’s to a bright
-              future!
+              You made our time here special! This journey had tons of learning,
+              fun and memories along the way. <br /> Here’s to a bright future!
             </p>
           </div>
         </div>
@@ -149,6 +147,13 @@ function CenterDiv({ className }) {
             className={`${styles.verticalItem} ${
               seniors[currentIndex].code === "back" ? "" : styles.inactive
             }`}
+            onClick={() => {
+              handleTransition(() => {
+                setCurrentIndex(
+                  seniors.findIndex((senior) => senior.code === "back")
+                );
+              });
+            }}
           >
             <p>x5</p>
             <img src={pythonLogo} alt="back" />
@@ -157,6 +162,13 @@ function CenterDiv({ className }) {
             className={`${styles.verticalItem} ${
               seniors[currentIndex].code === "app" ? "" : styles.inactive
             }`}
+            onClick={() => {
+              handleTransition(() => {
+                setCurrentIndex(
+                  seniors.findIndex((senior) => senior.code === "app")
+                );
+              });
+            }}
           >
             <p>x4</p>
             <img src={flutterLogo} alt="app" />
@@ -165,33 +177,31 @@ function CenterDiv({ className }) {
             className={`${styles.verticalItem} ${
               seniors[currentIndex].code === "design" ? "" : styles.inactive
             }`}
+            onClick={() => {
+              handleTransition(() => {
+                setCurrentIndex(
+                  seniors.findIndex((senior) => senior.code === "design")
+                );
+              });
+            }}
           >
             <p>x4</p>
             <img src={figmaLogo} alt="design" />
           </div>
           <div
             className={`${styles.verticalItem} ${
-              seniors[currentIndex].code === "3d" ? "" : styles.inactive
+              seniors[currentIndex].code === "video" ? "" : styles.inactive
             }`}
+            onClick={() => {
+              handleTransition(() => {
+                setCurrentIndex(
+                  seniors.findIndex((senior) => senior.code === "video")
+                );
+              });
+            }}
           >
             <p>x4</p>
-            <img src={blenderLogo} alt="3d" />
-          </div>
-          <div
-            className={`${styles.verticalItem} ${
-              seniors[currentIndex].code === "front" ? "" : styles.inactive
-            }`}
-          >
-            <p>x4</p>
-            <img src={reactLogo} alt="front" />
-          </div>
-          <div
-            className={`${styles.verticalItem} ${
-              seniors[currentIndex].code === "2d" ? "" : styles.inactive
-            }`}
-          >
-            <p>x4</p>
-            <img src={adobeAELogo} alt="2d" />
+            <img src={blenderLogo} alt="video" />
           </div>
         </div>
         <BottomDiv />

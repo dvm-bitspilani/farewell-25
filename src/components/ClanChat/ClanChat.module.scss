@@ -34,7 +34,7 @@
             width: 100%;
             position: absolute;
             top: 0%;
-            box-shadow: 0 0 2rem 3rem #403b37;
+            box-shadow: 0 0 2rem 6rem #403b37;
         }
 
         &::before {
@@ -80,6 +80,7 @@
                     background-color: #6f6a67;
                     display: flex;
                     align-items: center;
+                    justify-content: space-between;
                     border-radius: 6px;
                     border-top: 3px solid #504a47;
 
@@ -103,7 +104,7 @@
                     .sendIcon {
                         color: #e3e1e0;
                         font-size: 1.2rem;
-                        padding-right: 0.3rem;
+                        padding-right: 1rem;
                     }
                 }
             }
@@ -134,9 +135,10 @@
 
                 img {
                     position: absolute;
-                    width: 3rem;
+                    width: 2rem;
+                    top: 50%;
                     left: 50%;
-                    transform: translate(-50%, -5%);
+                    transform: translate(-50%, -50%);
                 }
             }
         }
@@ -250,7 +252,7 @@
     .messageBody {
         background-color: #34302d;
         width: fit-content;
-        padding: 0.5rem 1rem;
+        padding: 1rem 1rem;
         border-radius: 5px;
         min-width: 15rem;
 

@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 1vw 0 2vw 1.9vw;
+  padding: 1vw 0 1.2vw 1.9vw;
   min-height: 100vh;
   box-sizing: border-box;
 
@@ -28,11 +28,12 @@
       transform: translate(-50%, -50%);
       top: 48%;
       left: 54%;
-      font-size: clamp(0.6rem, 1.1vw, 1.5rem);
+      font-size: clamp(0.6rem, 1.3vw, 7rem);
       color: #ffffff;
       font-family: supercell;
       text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black,
         2px 2px 0 black;
+      letter-spacing: 1px;
     }
   }
 
@@ -45,6 +46,10 @@
     box-shadow: 0 0 3px black;
     padding: 0.24rem;
     transform: translateX(-3px);
+    position: absolute;
+    top: 50%;
+    // left: 1.2vw;
+    transform: translateY(-50%);
 
     .middleLeft {
       width: 3.6vw;
@@ -61,7 +66,8 @@
   }
 
   .attackButton {
-    width: 8.1vw;
+    width: 10vw;
+    box-sizing: border-box;
     aspect-ratio: 1;
     margin-top: auto;
     display: flex;

@@ -1,4 +1,4 @@
-@use "../../App.module.scss"  as *;
+@use "../../App.module.scss" as *;
 
 .centerDiv {
   position: absolute;
@@ -8,7 +8,7 @@
   flex-direction: column;
   align-items: center;
   height: 100%;
-  // justify-content: space-around;
+  justify-content: space-between;
   // min-height: 100vh;
 
   @media (max-width: $mobileBreakpoint) {
@@ -21,18 +21,19 @@
     flex-direction: column;
     align-items: center;
     gap: 0;
-    margin: 1.4vw 0 0 0;
-
+    
     .timerUpper {
-      font-size: clamp(0.6rem, 1.1vw, 1.5rem);
+      margin: 1.3vw 0 0.3vw 0;
+      font-size: clamp(0.4rem, 1.3vw, 1.5rem);
       color: #e6c3bc;
       font-family: supercell;
       text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black,
         2px 2px 0 black;
+      letter-spacing: 1.1px;
     }
 
     .timerLower {
-      font-size: clamp(1rem, 1.7vw, 1.8rem);
+      font-size: clamp(0.7rem, 1.7vw, 3rem);
       color: #ffffff;
       font-family: supercell;
       text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black,
@@ -45,13 +46,13 @@
     flex-direction: column;
     background: linear-gradient(to top, #6b6662 0%, #5a5552 100%);
     // height: 35.2vw;
-    width: 54.7vw;
+    width: 50vw;
     border: 1.8px solid black;
     border-radius: 1vw;
     margin: 1vw 0;
     padding: 0.8vw 0.5vw 0.6vw 0.5vw;
 
-    @media (max-width: $mobileBreakpoint){
+    @media (max-width: $mobileBreakpoint) {
       width: 90vw;
     }
 
@@ -62,13 +63,13 @@
       margin-bottom: 0.5vw;
 
       .backButton {
-        width: clamp(2.7rem, 6vw, 5rem);
+        width: clamp(2rem, 6.3vw, 10rem);
         cursor: pointer;
       }
 
       .carouselTitle {
         font-family: supercell;
-        font-size: clamp(0.7rem, 1.4vw, 2rem);
+        font-size: clamp(0.5rem, 1.6vw, 4rem);
         color: #ffffff;
       }
     }
@@ -108,18 +109,18 @@
 
             .field {
               font-family: supercell;
-              font-size: clamp(0.6rem, 1.3vw, 2rem);
+              font-size: clamp(0.4rem, 1.4vw, 3rem);
               color: #2a548e;
             }
 
             .value {
               font-family: supercell;
-              font-size: clamp(0.6rem, 1.3vw, 2rem);
+              font-size: clamp(0.4rem, 1.4vw, 3rem);
               color: #000;
             }
           }
           .divider {
-            width: 100%;
+            width: 90%;
             height: 2px;
             background-color: #858676;
           }
@@ -128,7 +129,7 @@
 
       .message {
         font-family: supercell;
-        font-size: clamp(0.6rem, 1.2vw, 2rem);
+        font-size: clamp(0.4rem, 1.4vw, 2rem);
         color: #2a548e;
         text-align: center;
         padding: 0 4vw;
@@ -136,12 +137,15 @@
     }
   }
   .verticalBox {
+    box-sizing: border-box;
     display: flex;
-    gap: 1.6vw;
+    gap: 1.1vw;
     border: 3.8px solid black;
-    border-radius: 1.5vw;
-    padding: 0.7vw;
+    border-radius: 1.2vw;
+    padding: 0.5vw 1.3vw;
     background-color: hsla(0, 0%, 0%, 0.4);
+    margin-bottom: 1.2vw;
+    height: 10vw;
 
     @media (max-width: $mobileBreakpoint) {
       display: grid;
@@ -156,9 +160,12 @@
       background-color: #5378a1e5;
       border-radius: 1vw;
       border: 2.2px solid black;
-      width: 7vw;
+      width: 6.3vw;
+      cursor: pointer;
 
-      @media (max-width: $mobileBreakpoint) {width: 20vw}
+      @media (max-width: $mobileBreakpoint) {
+        width: 20vw;
+      }
 
       p {
         border-top-left-radius: 0.7vw;
@@ -195,12 +202,14 @@
         background-color: transparent;
       }
 
-      img {filter: grayscale(1);}
+      img {
+        filter: grayscale(1);
+      }
     }
   }
 }
 
-video{
+video {
   position: fixed;
   top: 0;
   left: 0;

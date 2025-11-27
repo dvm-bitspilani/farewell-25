@@ -13,7 +13,7 @@ export default function ClanChat({ chatOpened, onClose }) {
             <div className={styles.clanChat}>
                 <ClanBanner />
                 <div className={styles.chatArea}>
-                    {Array(10).fill(null).map(() => <ClanMessage sender={{ name: "Mai-san", role: "front-end" }} self={randInt(2)} />)}
+                    {Array(10).fill(null).map((_, i) => <ClanMessage self={randInt(2)} key={i} />)}
                 </div>
                 <div className={styles.chatBottom}>
                     <div className={styles.chatInputWrapper}>
