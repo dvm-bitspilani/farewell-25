@@ -6,7 +6,7 @@ import raj from "/seniors/raj.jpg";
 import himanshu from "/seniors/himanshu.jpg";
 import malay from "/seniors/malay.jpg";
 import vatsal from "/seniors/vatsal.jpg";
-import krishay from "/seniors/krishay.jfif";
+import krishay from "/seniors/krishay.jpg";
 
 const seniors = {
   "back": [

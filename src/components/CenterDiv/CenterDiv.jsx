@@ -7,6 +7,7 @@ import forwardButton from "/svgs/forward-button.svg";
 
 // import adobeAELogo from "/imgs/adobe-ae-logo.png";
 import blenderLogo from "/imgs/blender-logo.png";
+import aeLogo from "/imgs/ae-logo.svg";
 import figmaLogo from "/imgs/figma-logo.png";
 import flutterLogo from "/imgs/flutter-logo.png";
 import pythonLogo from "/imgs/python-logo.png";
@@ -19,7 +20,7 @@ import ClanChat from "../ClanChat/ClanChat";
 const vertiIconList = {
   back: pythonLogo,
   design: figmaLogo,
-  video: blenderLogo,
+  video: aeLogo,
   app: flutterLogo,
 };
 
@@ -115,6 +116,11 @@ function CenterDiv({ className, chatOpen, setChatOpen }) {
               alt="back button"
               className={styles.backButton}
               onClick={() => indexChange(-1)}
+              style={
+                seniors[activeVertical].length > 1
+                  ? {}
+                  : { opacity: 0, pointerEvents: "none" }
+              }
             />
             <p className={styles.carouselTitle + " " + fadeClass}>
               {seniors[activeVertical][currentIndex].name}
@@ -124,6 +130,11 @@ function CenterDiv({ className, chatOpen, setChatOpen }) {
               alt="forward button"
               className={styles.backButton}
               onClick={() => indexChange(1)}
+              style={
+                seniors[activeVertical].length > 1
+                  ? {}
+                  : { opacity: 0, pointerEvents: "none" }
+              }
             />
           </div>
           <div className={styles.cardBox}>

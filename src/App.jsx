@@ -13,6 +13,7 @@ function App() {
     "/seniors/rakshit.jpg",
     "/seniors/sundar.jpg",
     "/seniors/vatsal.jpg",
+    "/seniors/krishay.jpg",
   ];
   const [flag, setFlag] = useState(false);
 
