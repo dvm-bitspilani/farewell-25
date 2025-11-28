@@ -28,7 +28,7 @@
             width: 100%;
             position: absolute;
             top: 0%;
-            box-shadow: 0 0 2rem 6rem #403b37;
+            box-shadow: 0 0 3rem 5rem #403b37;
         }
 
         &::before {
@@ -36,14 +36,14 @@
             width: 100%;
             position: absolute;
             bottom: 0%;
-            box-shadow: 0 0 2rem 3rem #403b37;
+            box-shadow: 0 0 3rem 4rem #403b37;
             transform: rotateZ(180deg);
         }
 
         .chatArea {
             padding: 6rem 1rem 5rem 3rem;
             overflow-y: scroll;
-            height: calc(100vh - 10rem);
+            height: calc(100vh - 11rem);
             display: flex;
             flex-direction: column-reverse;
             gap: 1rem;

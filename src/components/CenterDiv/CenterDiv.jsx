@@ -52,6 +52,14 @@ function CenterDiv({ className, chatOpen, setChatOpen }) {
     }, 2000);
   }
 
+  function handleVerticalChange(code) {
+    if (isAnimating) return;
+    setIsAnimating(true);
+    handleTransition(() => {
+      setCurrentIndex(seniors.findIndex((senior) => senior.code === code));
+    });
+  }
+
   useEffect(() => {
     const intervalId = setInterval(() => {
       const now = new Date().getTime();

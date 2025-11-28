@@ -4,6 +4,8 @@ import topRightSub from "/svgs/top-right-sub.svg";
 // import middleRight1 from "/svgs/middle-right-1.svg";
 // import middleRight2 from "/svgs/middle-right-2.svg";
 // import middleRight3 from "/imgs/middle-right-3.png";
+import soundMute from "/svgs/sound-mute.svg";
+import soundOpen from "/svgs/sound-open.svg";
 import bgMusic from "/audio/bg-music.mp3";
 import oasisLogo from "/imgs/oasis-logo.png";
 import apogeeLogo from "/imgs/apogee-logo.png";
@@ -48,8 +50,33 @@ function RightDiv({ className }) {
         alt="middleRight3"
         className={styles.middleRight3}
       /> */}
-        <COCButton className={styles.middleRight3} color="#C46A15">
-          {musicPlaying && musicRef.current && !musicRef.current.paused ? (
+        {/* <COCButton className={styles.middleRight3} color="#C46A15"> */}
+        {musicPlaying && musicRef.current && !musicRef.current.paused ? (
+          <img
+            src={soundOpen}
+            alt="sound open"
+            onClick={() => {
+              if (musicRef.current) {
+                musicRef.current.pause();
+                setmusicPlaying(false);
+              }
+            }}
+            className={styles.middleRight3}
+          />
+        ) : (
+          <img
+            src={soundMute}
+            alt="sound mute"
+            onClick={() => {
+              if (musicRef.current) {
+                musicRef.current.play();
+                setmusicPlaying(true);
+              }
+            }}
+            className={styles.middleRight3}
+          />
+        )}
+        {/* {musicPlaying && musicRef.current && !musicRef.current.paused ? (
             <IoVolumeHigh
               className={styles.volumeIcon}
               strokeWidth={20}
@@ -73,8 +100,8 @@ function RightDiv({ className }) {
                 }
               }}
             />
-          )}
-        </COCButton>
+          )} */}
+        {/* </COCButton> */}
       </div>
     </div>
   );

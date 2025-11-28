@@ -3,6 +3,8 @@ import attackImage from "/svgs/bottom-left.svg";
 import oasisLogo from "/imgs/oasis-logo.png";
 import apogeeLogo from "/imgs/apogee-logo.png";
 import bosmLogo from "/imgs/bosm-logo.png";
+import soundMute from "/svgs/sound-mute.svg";
+import soundOpen from "/svgs/sound-open.svg";
 // import soundImage from "/imgs/middle-right-3.png";
 import COCButton from "../cocButton/COCButton";
 import { useState, useRef } from "react";
@@ -38,7 +40,36 @@ export default function BottomDiv() {
         </COCButton>
       </div>
       {/* <img src={soundImage} className={styles.soundButton} /> */}
-      <COCButton
+      {musicPlaying ? (
+        <img
+          src={soundOpen}
+          alt="sound open"
+          className={styles.soundButton}
+          onClick={() => {
+            setMusicPlaying((prev) => !prev);
+            if (musicPlaying) {
+              audioRef.current.pause();
+            } else {
+              audioRef.current.play();
+            }
+          }}
+        />
+      ) : (
+        <img
+          src={soundMute}
+          alt="sound mute"
+          className={styles.soundButton}
+          onClick={() => {
+            setMusicPlaying((prev) => !prev);
+            if (musicPlaying) {
+              audioRef.current.pause();
+            } else {
+              audioRef.current.play();
+            }
+          }}
+        />
+      )}
+      {/* <COCButton
         className={styles.soundButton}
         onClick={() => {
           setMusicPlaying((prev) => !prev);
@@ -63,7 +94,7 @@ export default function BottomDiv() {
             stroke="#000"
           />
         )}
-      </COCButton>
+      </COCButton> */}
     </div>
   );
 }
