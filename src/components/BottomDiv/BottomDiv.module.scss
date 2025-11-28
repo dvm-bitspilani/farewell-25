@@ -69,26 +69,29 @@
         gap: 0.6rem;
 
         .festLogoWrapper {
-            width: 2.3rem;
-            height: 2.3rem;
+            width: 12vw;
+            height: 12vw;
+            margin-bottom: 3vw;
             display: flex;
             align-items: center;
             justify-content: center;
 
             img {
-                width: 1.5rem;
+                width: 9vw;
             }
         }
     }
 
     .soundButton {
-        width: 2.3rem;
-        height: 2.3rem;
+        width: 12vw;
+        height: 12vw;
         aspect-ratio: 1;
         border-width: 2px;
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-bottom: 3vw;
+
 
         .volumeIcon {
             font-size: clamp(1rem, 6vw, 5rem);

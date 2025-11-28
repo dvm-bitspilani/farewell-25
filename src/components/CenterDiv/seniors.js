@@ -1,40 +1,61 @@
+import rakshit from "/seniors/rakshit.jpg";
+import gurekas from "/seniors/gurekas.jpg";
+import praneel from "/seniors/praneel.jpg";
+import sundar from "/seniors/sundar.jpg";
+import raj from "/seniors/raj.jpg";
+import himanshu from "/seniors/himanshu.jpg";
+import krishay from "/seniors/krishay.jfif";
+
 const seniors = [
   {
-    name: "Jane Smith",
+    name: "Rakshit Sakhuja",
     vertical: "Back-End",
-    batch: "2025",
+    batch: "2023",
     code: "back",
+    img: rakshit,
   },
   {
-    name: "Alice Johnson",
-    vertical: "UI/UX",
+    name: "Gurekas Singh Sahney",
+    vertical: "Back-End",
     batch: "2023",
-    code: "design",
+    code: "back",
+    img: gurekas,
   },
 
   {
-    name: "Bob Brown",
-    vertical: "Video 3d",
-    batch: "2024",
-    code: "video",
+    name: "Himanshu Kumar",
+    vertical: "Back-End",
+    batch: "2023",
+    code: "back",
+    img: himanshu,
   },
   {
-    name: "Charlie Davis",
-    vertical: "App Dev",
-    batch: "2025",
-    code: "app",
+    name: "Raj Clerk",
+    vertical: "Back-End",
+    batch: "2023",
+    code: "back",
+    img: raj,
   },
   {
-    name: "Eve Wilson",
-    vertical: "Video 2d",
+    name: "Praneel Maddula",
+    vertical: "Design",
+    batch: "2023",
+    code: "design",
+    img: praneel,
+  },
+  {
+    name: "Krishay Prakash",
+    vertical: "Design",
+    batch: "2023",
+    code: "design",
+    img: krishay,
+  },
+  {
+    name: "Sundar Matu",
+    vertical: "Video",
     batch: "2023",
     code: "video",
-  },
-  {
-    name: "Eve Johnson",
-    vertical: "Video 2d",
-    batch: "2023",
-    code: "video",
+    img: sundar,
   },
 ];
 export default seniors;

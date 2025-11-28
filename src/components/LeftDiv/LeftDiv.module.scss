@@ -142,7 +142,12 @@
     }
 
     .trophyCountWrapper .topLeftSub {
-      width: 30vw;
+      width: 40vw;
+    }
+    .trophyCountWrapper {
+      .trophyCount {
+        font-size: clamp(1rem, 4vw, 7rem);
+      }
     }
   }
 }
