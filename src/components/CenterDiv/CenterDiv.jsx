@@ -17,11 +17,11 @@ import CloudAnimation from "../CloudAnimation/CloudAnimation";
 import ClanChat from "../ClanChat/ClanChat";
 
 const vertiIconList = {
-  "back": pythonLogo,
-  "design": figmaLogo,
-  "video": blenderLogo,
-  "app": flutterLogo
-}
+  back: pythonLogo,
+  design: figmaLogo,
+  video: blenderLogo,
+  app: flutterLogo,
+};
 
 function CenterDiv({ className, chatOpen, setChatOpen }) {
   let targetDate = new Date("Nov 29, 2025 20:00:00").getTime();
@@ -33,14 +33,24 @@ function CenterDiv({ className, chatOpen, setChatOpen }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [activeVertical, setActiveVertical] = useState("back");
   const [isAnimating, setIsAnimating] = useState(false);
+  const [fadeClass, setFadeClass] = useState(styles.fadeExit);
 
   // const videoRef = useRef(null);
 
   const indexChange = (val) => {
-    const newIndex = currentIndex + val;
-    setCurrentIndex(newIndex >= seniors[activeVertical].length ?
-      0 : (newIndex < 0) ? seniors[activeVertical].length - 1 : newIndex)
-  }
+    setFadeClass(styles.fadeEnter);
+    setTimeout(() => {
+      setFadeClass(styles.fadeExit);
+      const newIndex = currentIndex + val;
+      setCurrentIndex(
+        newIndex >= seniors[activeVertical].length
+          ? 0
+          : newIndex < 0
+          ? seniors[activeVertical].length - 1
+          : newIndex
+      );
+    }, 300);
+  };
 
   function handleTransition(verti) {
     if (isAnimating) return;
@@ -85,10 +95,10 @@ function CenterDiv({ className, chatOpen, setChatOpen }) {
     <div className={className}>
       {/* <video src={transition} ref={videoRef}></video> */}
       {isAnimating && <CloudAnimation />}
-      <ClanChat 
-        chatOpened={chatOpen} 
-        onClose={() => setChatOpen(false)} 
-        activeVertical={activeVertical} 
+      <ClanChat
+        chatOpened={chatOpen}
+        onClose={() => setChatOpen(false)}
+        activeVertical={activeVertical}
         currentIndex={currentIndex}
       />
       <div className={styles.centerDiv}>
@@ -106,7 +116,9 @@ function CenterDiv({ className, chatOpen, setChatOpen }) {
               className={styles.backButton}
               onClick={() => indexChange(-1)}
             />
-            <p className={styles.carouselTitle}>{seniors[activeVertical][currentIndex].name}</p>
+            <p className={styles.carouselTitle + " " + fadeClass}>
+              {seniors[activeVertical][currentIndex].name}
+            </p>
             <img
               src={forwardButton}
               alt="forward button"
@@ -119,7 +131,7 @@ function CenterDiv({ className, chatOpen, setChatOpen }) {
               <img
                 src={seniors[activeVertical][currentIndex].img}
                 alt="card image"
-                className={styles.cardImage}
+                className={styles.cardImage + " " + fadeClass}
               />
               <div className={styles.cardDetails}>
                 <div className={styles.subDetailsBox}>
@@ -150,18 +162,18 @@ function CenterDiv({ className, chatOpen, setChatOpen }) {
           </div>
         </div>
         <div className={styles.verticalBox}>
-          {
-            Object.keys(seniors).map((verti, i) => 
-              <div
-                className={`${styles.verticalItem} ${verti === activeVertical ? "" : styles.inactive}`}
-                onClick={() => handleTransition(verti)}
-                key={i}
-              >
-                <p>x{seniors[verti].length}</p>
-                <img src={vertiIconList[verti]} alt={verti} />
-              </div>
-            )
-          }
+          {Object.keys(seniors).map((verti, i) => (
+            <div
+              className={`${styles.verticalItem} ${
+                verti === activeVertical ? "" : styles.inactive
+              }`}
+              onClick={() => handleTransition(verti)}
+              key={i}
+            >
+              <p>x{seniors[verti].length}</p>
+              <img src={vertiIconList[verti]} alt={verti} />
+            </div>
+          ))}
         </div>
         <BottomDiv />
       </div>

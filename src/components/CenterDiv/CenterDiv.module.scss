@@ -1,5 +1,12 @@
 @use "../../App.module.scss" as *;
 
+.fadeEnter {
+  opacity: 0;
+}
+.fadeExit {
+  opacity: 1;
+}
+
 .centerDiv {
   position: absolute;
   top: 0;
@@ -85,6 +92,7 @@
         font-family: supercell;
         font-size: clamp(0.5rem, 1.6vw, 4rem);
         color: #ffffff;
+        transition: opacity 0.3s ease-in-out;
         @media (max-width: $mobileBreakpoint) {
           font-size: 4vw;
         }
@@ -109,6 +117,7 @@
 
         .cardImage {
           width: 45%;
+          transition: opacity 0.3s ease-in-out;
         }
 
         .cardDetails {
