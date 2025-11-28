@@ -11,7 +11,7 @@ export default function ClanBanner() {
             <div className={styles.clanTitle}>DVM</div>
             <div className={styles.onlineStat}>
                 <div>Online:</div>
-                <div>22/22</div>
+                <div>9/9</div>
             </div>
         </COCButton>
     )
