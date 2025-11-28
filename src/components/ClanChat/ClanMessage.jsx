@@ -11,11 +11,10 @@ const messageList = [
     ["BC", "bc", "BENCHOD", "benchodd"]
 ]
 
-export default function ClanMessage({ self }) {
+export default function ClanMessage({ self, sender, time }) {
 
     const messageRef = useRef(messageList.map(list => list[randInt(list.length)]).join(" "));
     // const messageTimeRef = useRef()
-    const sender = self ? { name: "Rahul Gupta", vertical: "video 2d" } : seniors[Math.floor(Math.random() * seniors.length)];
 
     return (
         <div className={self ? styles.selfMessage : styles.clanMessage}>
@@ -28,7 +27,11 @@ export default function ClanMessage({ self }) {
                 <p className={styles.message}>
                     {messageRef.current}
                 </p>
-                <div className={styles.messageTime}>{(new Date()).getMinutes()}m</div>
+                <div className={styles.messageTime}>
+                    {
+                        time < 3 ? "just now" : (time > 60 ? Math.floor(time/60) + "h " : "") + time % 60 + "m"
+                    }
+                </div>
             </div>
         </div>
     )

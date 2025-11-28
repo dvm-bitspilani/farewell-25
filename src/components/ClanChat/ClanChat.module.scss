@@ -11,13 +11,7 @@
     align-items: center;
     z-index: 1000;
 
-    // @media (max-width: $mobileBreakpoint) {
-    //     height: 60dvh;
-
-    //     .clanChat {
-    //         height: 60dvh;
-    //     }
-    // }
+    @media (max-width: $mobileBreakpoint) {display: none;}
 
     .clanChat {
         width: 42vw;
@@ -47,7 +41,7 @@
         }
 
         .chatArea {
-            padding: 5rem 1rem 5rem 3rem;
+            padding: 6rem 1rem 5rem 3rem;
             overflow-y: scroll;
             height: calc(100vh - 10rem);
             display: flex;

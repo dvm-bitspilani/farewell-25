@@ -12,8 +12,7 @@ import { FaStar } from "react-icons/fa";
 import mapIcon from "/imgs/coc-map-icon.png";
 import TopXPBar from "./TopXPBar";
 
-function LeftDiv({ className }) {
-  const [chatOpen, isChatOpen] = useState(false);
+function LeftDiv({ className, setChatOpen }) {
 
   return (
     <div className={`${styles.leftDiv} ${className}`}>
@@ -30,7 +29,7 @@ function LeftDiv({ className }) {
       <div className={styles.chatButtonWrapper}>
         <COCButton
           className={styles.middleLeft}
-          onClick={() => isChatOpen(true)}
+          onClick={() => setChatOpen(true)}
           color="#C46A15"
         >
           <img src={chatIcon} alt="chat" />
@@ -53,7 +52,6 @@ function LeftDiv({ className }) {
         <img className={styles.mapImg} src={mapIcon} />
         <div className={styles.attackLabel}>DDoS</div>
       </COCButton>
-      <ClanChat chatOpened={chatOpen} onClose={() => isChatOpen(false)} />
     </div>
   );
 }
