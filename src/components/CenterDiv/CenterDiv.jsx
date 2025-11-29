@@ -25,7 +25,7 @@ const vertiIconList = {
 };
 
 function CenterDiv({ className, chatOpen, setChatOpen }) {
-  let targetDate = new Date("Nov 29, 2025 20:00:00").getTime();
+  let targetDate = new Date("Nov 29, 2025 20:30:00").getTime();
   const [timeLeft, setTimeLeft] = useState({
     hours: 0,
     minutes: 0,
